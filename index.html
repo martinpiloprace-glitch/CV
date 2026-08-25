@@ -19,16 +19,17 @@
             font-size: 12px;
             display: flex;
             justify-content: center;
-            padding: 20px 0;
+            padding: 20px 10px;
         }
 
-        /* Hlavní kontejner A4 */
+        /* Hlavní kontejner */
         .cv-container {
-            width: 210mm;
+            width: 100%;
+            max-width: 210mm;
             min-height: 297mm;
             background: #ffffff;
             display: grid;
-            grid-template-columns: 75mm 135mm;
+            grid-template-columns: 75mm 1fr;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
         }
 
@@ -75,6 +76,7 @@
         .info-list li {
             margin-bottom: 5px;
             color: #ffffff;
+            word-break: break-word;
         }
 
         .info-list a {
@@ -146,6 +148,28 @@
             margin-top: 1px;
         }
 
+        /* RESPONZIVITA PRO MOBILNÍ ZAŘÍZENÍ */
+        @media screen and (max-width: 700px) {
+            body {
+                padding: 0;
+                background-color: #ffffff;
+            }
+
+            .cv-container {
+                grid-template-columns: 1fr;
+                box-shadow: none;
+                min-height: auto;
+            }
+
+            .sidebar {
+                padding: 20px 15px;
+            }
+
+            .main-content {
+                padding: 20px 15px;
+            }
+        }
+
         /* TISK A PDF NASTAVENÍ */
         @page {
             size: A4 portrait;
@@ -162,6 +186,8 @@
                 box-shadow: none;
                 width: 210mm;
                 height: 297mm;
+                min-height: 297mm;
+                grid-template-columns: 75mm 135mm;
                 overflow: hidden;
             }
 
