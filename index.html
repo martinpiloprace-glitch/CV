@@ -2,106 +2,266 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Životopis - Martin Pilo</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #525659;
+            color: #222222;
+            line-height: 1.4;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        /* Hlavní kontejner A4 */
+        .cv-container {
+            width: 210mm;
+            min-height: 297mm;
+            background: #ffffff;
+            display: grid;
+            grid-template-columns: 75mm 135mm;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Levý sloupec - Červený */
+        .sidebar {
+            background-color: #8b0000;
+            color: #ffffff;
+            padding: 25px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .sidebar h1 {
+            font-size: 22px;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .about-me {
+            font-size: 11px;
+            color: #f0f0f0;
+            line-height: 1.35;
+        }
+
+        .sidebar h2 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            margin-bottom: 6px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+            padding-bottom: 3px;
+            font-weight: bold;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .info-list a {
+            color: #ffffff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .sidebar ul {
+            padding-left: 15px;
+            color: #ffffff;
+        }
+
+        .sidebar li {
+            margin-bottom: 4px;
+        }
+
+        /* Pravý sloupec - Bílý */
+        .main-content {
+            padding: 25px 25px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content h2 {
+            font-size: 15px;
+            letter-spacing: 1px;
+            color: #8b0000;
+            border-bottom: 2px solid #8b0000;
+            padding-bottom: 4px;
+            margin-bottom: 18px;
+            font-weight: bold;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .job {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .job .date {
+            font-size: 10px;
+            font-weight: bold;
+            color: #666666;
+        }
+
+        .job .title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .job .company {
+            font-size: 11.5px;
+            font-weight: bold;
+            color: #8b0000;
+        }
+
+        .job .job-desc {
+            font-size: 11px;
+            color: #444444;
+            margin-top: 1px;
+        }
+
+        /* TISK A PDF NASTAVENÍ */
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                overflow: hidden;
+            }
+
+            .sidebar, .main-content {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="cv-container">
+        <!-- Levý červený sloupec -->
+        <aside class="sidebar">
+            <header class="profile-header">
+                <h1>Martin<br>Pilo</h1>
+                <p class="about-me">
+                    Jsem spolehlivý dělník se zkušenostmi v manuální práci.
+                </p>
+            </header>
 
-<div class="container">
-    <div class="left-column">
-        <div class="main-name">
-            <h1>Martin Pilo</h1>
-            <p>Jsem spolehlivý dělník se zkušenostmi v manuální práci</p>
-        </div>
+            <section class="section">
+                <h2>Osobní údaje</h2>
+                <ul class="info-list">
+                    <li><strong>Lokalita:</strong> Brno</li>
+                    <li><strong>Telefon:</strong> 705 956 708</li>
+                    <li><strong>E-mail:</strong> martinpiloprace@gmail.com</li>
+                    <li><strong>GitHub:</strong> <a href="#" target="_blank">Profil GitHub</a></li>
+                </ul>
+            </section>
 
-        <div class="info-group">
-            <h3>Osobní údaje</h3>
-            <ul>
-                <li>🏠 Brno</li>
-                <li>📱 601 532 055</li>
-                <li>📧 martinpiloprace@gmail.com</li>
-            </ul>
-        </div>
+            <section class="section">
+                <h2>Vzdělání</h2>
+                <p><strong>3letý učební obor</strong><br>květinářské a ovocnářské práce</p>
+            </section>
 
-        <div class="info-group">
-            <h3>Vzdělání</h3>
-            <ul>
-                <li>3 letý učební obor</li>
-                <li>květinářské a ovocnářské práce</li>
-            </ul>
-        </div>
+            <section class="section">
+                <h2>Mezi mé silné stránky patří:</h2>
+                <ul>
+                    <li>schopnost týmové spolupráce</li>
+                    <li>odpovědný přístup</li>
+                    <li>stále trvající seberozvoj</li>
+                    <li>rozšiřování pracovních zkušeností</li>
+                </ul>
+            </section>
 
-        <div class="info-group">
-            <h3>Mezi mé silné stránky patří:</h3>
-            <ul>
-                <li>schopnost týmové spolupráce</li>
-                <li>odpovědný přístup</li>
-                <li>stáletrvající seberozvoj</li>
-                <li>rozšiřování pracovních zkušeností</li>
-            </ul>
-        </div>
+            <section class="section">
+                <h2>Záliby</h2>
+                <p>FABLAB (3D tisk, gravírování), kinematografie</p>
+            </section>
+        </aside>
 
-        <div class="info-group">
-            <h3>Záliby</h3>
-            <ul>
-                <li>FAB LAB (3D tisk, gravírování)</li>
-                <li>kinematografie</li>
-            </ul>
-        </div>
+        <!-- Pravý bílý sloupec -->
+        <main class="main-content">
+            <h2>PRACOVNÍ ZKUŠENOSTI</h2>
 
-        <a href="https://github.com/martinpiloprace-glitch/HOTOVOGITHUB" target="_blank" class="github-link">
-            <button>GitHub Profile KLIKNI</button>
-        </a>
+            <div class="timeline">
+                <article class="job">
+                    <span class="date">1/2024 – 2/2025</span>
+                    <span class="title">Dělník</span>
+                    <span class="company">SAKO</span>
+                    <p class="job-desc">separace odpadu</p>
+                </article>
+
+                <article class="job">
+                    <span class="date">3/2019 – 9/2023</span>
+                    <span class="title">Skladník</span>
+                    <span class="company">Notino</span>
+                    <p class="job-desc">práce ve skladu – expedice</p>
+                </article>
+
+                <article class="job">
+                    <span class="date">11/2016 – 2/2018</span>
+                    <span class="title">Skladník</span>
+                    <span class="company">B-nove</span>
+                    <p class="job-desc">kontrola kvality výrobků</p>
+                </article>
+
+                <article class="job">
+                    <span class="date">8/2008 – 8/2009</span>
+                    <span class="title">Skladník</span>
+                    <span class="company">Veletrhy Brno</span>
+                    <p class="job-desc">naskladnění materiálu</p>
+                </article>
+
+                <article class="job">
+                    <span class="date">10/2005 – 11/2006</span>
+                    <span class="title">Dělník</span>
+                    <span class="company">Zoo Brno</span>
+                    <p class="job-desc">údržba chodníků, natírání laviček, pomocné práce</p>
+                </article>
+
+                <article class="job">
+                    <span class="date">6/1999 – 6/2000</span>
+                    <span class="title">Dělník</span>
+                    <span class="company">Technické služby MČ Slatina</span>
+                    <p class="job-desc">dělnické práce</p>
+                </article>
+            </div>
+        </main>
     </div>
-
-    <div class="right-column">
-        <h2>Pracovní zkušenosti</h2>
-        
-        <div class="job-list">
-            <div class="job">
-                <h3>Dělník</h3>
-                <span class="date">1/2024 – 2/2025</span>
-                <strong>SAKO</strong>
-                <p>separace odpadu</p>
-            </div>
-
-            <div class="job">
-                <h3>Skladník</h3>
-                <span class="date">3/2019 – 9/2023</span>
-                <strong>Notino</strong>
-                <p>práce ve skladu - expedice</p>
-            </div>
-
-            <div class="job">
-                <h3>Skladník</h3>
-                <span class="date">11/2016 – 2/2018</span>
-                <strong>B-nove</strong>
-                <p>kontrola kvality výrobků</p>
-            </div>
-
-            <div class="job">
-                <h3>Skladník</h3>
-                <span class="date">8/2008 – 8/2009</span>
-                <strong>Veletrhy Brno</strong>
-                <p>naskladnění materiálů</p>
-            </div>
-
-            <div class="job">
-                <h3>Dělník</h3>
-                <span class="date">10/2005 – 11/2006</span>
-                <strong>Zoo Brno</strong>
-                <p>údržba chodníků, natírání laviček, pomocné práce</p>
-            </div>
-
-            <div class="job">
-                <h3>Dělník</h3>
-                <span class="date">6/1999 – 6/2000</span>
-                <strong>Technické služby MČ Slatina</strong>
-                <p>dělnické práce</p>
-            </div>
-        </div>
-    </div>
-</div>
-
 </body>
 </html>
